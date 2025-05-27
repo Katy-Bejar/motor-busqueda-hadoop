@@ -1,0 +1,20 @@
+boat	1.mp4,2.mp4
+car	1.mp4,5.mp4,3.mp4
+bus	1.mp4,3.mp4
+truck	1.mp4,5.mp4,3.mp4
+train	1.mp4
+person	1.mp4,5.mp4,4.mp4,3.mp4
+potted plant	1.mp4,4.mp4,3.mp4
+airplane	1.mp4
+tv	3.mp4
+couch	3.mp4
+bench	3.mp4
+chair	5.mp4,3.mp4
+backpack	4.mp4,3.mp4
+handbag	3.mp4
+dog	3.mp4
+dining table	3.mp4
+bed	3.mp4
+umbrella	5.mp4,3.mp4
+refrigerator	3.mp4
+fire hydrant	5.mp4
