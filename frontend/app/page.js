@@ -61,9 +61,7 @@ export default function Home() {
               key={index}
               className="bg-white p-4 rounded-lg shadow hover:shadow-md transition"
             >
-              <span className="block text-lg font-bold text-gray-800">{result.camera_id}</span>
-              <p className="text-gray-700 mt-1">📍 {result.location}</p>
-              <p className="text-gray-500 text-sm">📅 {result.date}</p>
+              <p className="text-lg font-semibold text-gray-800">{result.video_file}</p>
             </div>
           ))
         ) : (
