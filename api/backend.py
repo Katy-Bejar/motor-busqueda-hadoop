@@ -4,42 +4,59 @@ import os
 import json
 
 app = Flask(__name__)
-CORS(app) 
-index_file = "api/data/inverted_index.txt"
-json_folder = "video_processor/datos_generados"
+CORS(app)
+
+# Rutas relativas desde backend.py
+index_file = os.path.join("data", "inverted_index.txt")
+json_folder = os.path.join("..", "video_processor", "datos_generados")
+video_folder = os.path.join("..", "video_processor", "videos")
 
 @app.route('/search')
 def search():
-    q = request.args.get('q', '').lower()
-    if not q:
+    query = request.args.get('q', '').strip().lower()
+    if not query:
         return jsonify({"error": "Falta parámetro q"}), 400
 
-    videos = []
-    with open(index_file, 'r', encoding='utf-8') as f:
-        for line in f:
-            if not line.strip():
-                continue
-            obj, vids = line.strip().split('\t')
-            if obj.lower() == q:
-                videos = vids.split(',')
-                break
+    matched_videos = []
+
+    try:
+        with open(index_file, 'r', encoding='utf-8') as f:
+            for line in f:
+                if not line.strip():
+                    continue
+                parts = line.strip().split('\t')
+                if len(parts) != 2:
+                    continue  # línea mal formateada
+                keyword, videos_str = parts
+                if keyword.strip().lower() == query:
+                    matched_videos = videos_str.split(',')
+                    break
+    except Exception as e:
+        return jsonify({"error": f"Error leyendo índice: {str(e)}"}), 500
 
     results = []
-    for v in videos:
-        try:
-            with open(os.path.join(json_folder, v + ".json"), 'r', encoding='utf-8') as jf:
 
-                data = json.load(jf)
-                results.append({
-                    "camera_id": data["camera_id"],
-                    "location": data["location"],
-                    "date": data["date"],
-                    "video_file": data["video_file"]
-                })
-        except:
-            pass
+    for video in matched_videos:
+        video = video.strip()
+        video_name = os.path.basename(video)
+        json_file_path = os.path.join(json_folder, video_name + ".json")
+        video_file_path = os.path.join(video_folder, video_name)
+
+        if os.path.exists(json_file_path):
+            try:
+                with open(json_file_path, 'r', encoding='utf-8') as jf:
+                    data = json.load(jf)
+                    results.append({
+                        "video_file": video_name,
+                        "camera_id": data.get("camera_id"),
+                        "location": data.get("location"),
+                        "date": data.get("date"),
+                        "video_path": video_file_path.replace("\\", "/")  # para que funcione bien en Windows
+                    })
+            except Exception as e:
+                print(f"Error leyendo JSON {json_file_path}: {e}")
 
     return jsonify(results)
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run(port=5000, debug=True)
