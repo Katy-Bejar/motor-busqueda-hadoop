@@ -1,0 +1,18 @@
+{
+  "camera_id": "cam_04",
+  "location": "Puerta Lateral",
+  "priority": "media",
+  "video_file": "4.mp4",
+  "date": "2025-05-27",
+  "timeslots": [
+    {
+      "hour": "00:00-01:00",
+      "object_counts": {
+        "person": 481,
+        "potted plant": 83,
+        "backpack": 13
+      }
+    }
+  ],
+  "alerts": []
+}

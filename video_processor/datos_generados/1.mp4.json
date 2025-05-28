@@ -1,0 +1,23 @@
+{
+  "camera_id": "cam_01",
+  "location": "Entrada Principal",
+  "priority": "alta",
+  "video_file": "1.mp4",
+  "date": "2025-05-27",
+  "timeslots": [
+    {
+      "hour": "00:00-01:00",
+      "object_counts": {
+        "boat": 6,
+        "car": 411,
+        "bus": 28,
+        "truck": 44,
+        "train": 5,
+        "person": 12,
+        "potted plant": 2,
+        "airplane": 3
+      }
+    }
+  ],
+  "alerts": []
+}

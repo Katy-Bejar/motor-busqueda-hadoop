@@ -1,0 +1,21 @@
+{
+  "camera_id": "cam_05",
+  "location": "Zona de Carga",
+  "priority": "alta",
+  "video_file": "5.mp4",
+  "date": "2025-05-27",
+  "timeslots": [
+    {
+      "hour": "00:00-01:00",
+      "object_counts": {
+        "car": 2423,
+        "truck": 152,
+        "person": 32,
+        "umbrella": 4,
+        "fire hydrant": 3,
+        "chair": 2
+      }
+    }
+  ],
+  "alerts": []
+}

@@ -1,0 +1,16 @@
+{
+  "camera_id": "cam_02",
+  "location": "Patio Trasero",
+  "priority": "baja",
+  "video_file": "2.mp4",
+  "date": "2025-05-27",
+  "timeslots": [
+    {
+      "hour": "00:00-01:00",
+      "object_counts": {
+        "boat": 3
+      }
+    }
+  ],
+  "alerts": []
+}

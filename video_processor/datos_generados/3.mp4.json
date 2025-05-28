@@ -1,0 +1,31 @@
+{
+  "camera_id": "cam_03",
+  "location": "Zona de Bicicletas",
+  "priority": "baja",
+  "video_file": "3.mp4",
+  "date": "2025-05-27",
+  "timeslots": [
+    {
+      "hour": "00:00-01:00",
+      "object_counts": {
+        "car": 2447,
+        "person": 668,
+        "bus": 64,
+        "tv": 151,
+        "couch": 406,
+        "bench": 355,
+        "chair": 468,
+        "potted plant": 70,
+        "backpack": 4,
+        "handbag": 17,
+        "dog": 1,
+        "dining table": 73,
+        "truck": 25,
+        "bed": 60,
+        "umbrella": 3,
+        "refrigerator": 1
+      }
+    }
+  ],
+  "alerts": []
+}
